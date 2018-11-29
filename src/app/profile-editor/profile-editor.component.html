@@ -2,7 +2,7 @@
 
   <label>
     First Name:
-    <input type="text" formControlName="firstName">
+    <input type="text" formControlName="firstName" required>
   </label>
 
   <label>
@@ -13,3 +13,6 @@
   <button type="submit" [disabled]="!profileForm.valid">Submit</button>
 
 </form>
+<p>
+  Form Status: {{ profileForm.status }}
+</p>

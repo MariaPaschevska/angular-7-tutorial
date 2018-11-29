@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormControl } from '@angular/forms';
+import { FormGroup, FormControl, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-profile-editor',
@@ -9,7 +9,7 @@ import { FormGroup, FormControl } from '@angular/forms';
 export class ProfileEditorComponent implements OnInit {
 
   profileForm = new FormGroup({
-    firstName: new FormControl(''),
+    firstName: new FormControl('', Validators.required),
     lastName: new FormControl(''),
   });
 
