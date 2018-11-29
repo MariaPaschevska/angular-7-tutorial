@@ -1,17 +1,21 @@
+<h3>Simple Reactive Form</h3>
 <div class="form-label">
   <label>
     Name:
     <input type="text" [formControl]="name">
   </label>
   <!-- display the current value using interpolation in the template -->
-  <p>
+  <p class="note">
     Value (interpolation): {{ name.value }}
   </p>
   <!-- display the current value using valueChanges.subscribe in the class -->
-  <p>
+  <p class="note">
     Value (valueChanges.subscribe): {{ updatedValue }}
   </p>
+  <p>
+    <button (click)="updateName()">Update Name</button>
+  </p>
 </div>
-<p>
-  <button (click)="updateName()">Update Name</button>
-</p>
+
+<h3>Form Group</h3>
+<app-profile-editor></app-profile-editor>
