@@ -10,10 +10,12 @@ import { FormControl } from '@angular/forms';
 export class NameEditorComponent implements OnInit {
 
   name = new FormControl('');
+  updatedValue: string;
 
   constructor() { }
 
   ngOnInit() {
+    this.name.valueChanges.subscribe(value => this.updatedValue = value);
   }
 
   updateName() {
