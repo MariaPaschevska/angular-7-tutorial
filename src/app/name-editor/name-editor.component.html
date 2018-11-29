@@ -1,0 +1,10 @@
+<div class="form-label">
+  <label>
+    Name:
+    <input type="text" [formControl]="name">
+  </label>
+  <!--to display the current value using interpolation in the template-->
+  <p>
+    Value: {{ name.value }}
+  </p>
+</div>
