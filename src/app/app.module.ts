@@ -16,6 +16,7 @@ import { MessagesComponent }    from './messages/messages.component';
 import { HeroSearchComponent } from './hero-search/hero-search.component';
 import { NameEditorComponent } from './name-editor/name-editor.component';
 import { ProfileEditorComponent } from './profile-editor/profile-editor.component';
+import { HeroFormComponent } from './hero-form/hero-form.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,8 @@ import { ProfileEditorComponent } from './profile-editor/profile-editor.componen
     DashboardComponent,
     HeroSearchComponent,
     NameEditorComponent,
-    ProfileEditorComponent
+    ProfileEditorComponent,
+    HeroFormComponent
   ],
   imports: [
     BrowserModule,
