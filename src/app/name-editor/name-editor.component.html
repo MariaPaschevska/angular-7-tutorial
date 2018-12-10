@@ -1,21 +1,25 @@
 <h3>Simple Reactive Form</h3>
-<div class="form-label">
-  <label>
-    Name:
-    <input type="text" [formControl]="name">
-  </label>
-  <!-- display the current value using interpolation in the template -->
-  <p class="note">
-    Value (interpolation): {{ name.value }}
-  </p>
-  <!-- display the current value using valueChanges.subscribe in the class -->
-  <p class="note">
-    Value (valueChanges.subscribe): {{ updatedValue }}
-  </p>
-  <p>
-    <button (click)="updateName()">Update Name</button>
-  </p>
+<div class="container">
+  <div class="form-label">
+    <label>Name:</label>
+      <input type="text" [formControl]="name" class="form-control" >
+
+    <!-- display the current value using interpolation in the template -->
+    <p class="note">
+      Value (interpolation): {{ name.value }}
+    </p>
+    <!-- display the current value using valueChanges.subscribe in the class -->
+    <p class="note">
+      Value (valueChanges.subscribe): {{ updatedValue }}
+    </p>
+    <p>
+      <button (click)="updateName()" class="btn btn-success">Update Name</button>
+    </p>
+  </div>
 </div>
 
-<h3>Form Group</h3>
+<h3>Reactive Form Group</h3>
 <app-profile-editor></app-profile-editor>
+
+<h3>Template-Driven Form Group</h3>
+<app-hero-form></app-hero-form>

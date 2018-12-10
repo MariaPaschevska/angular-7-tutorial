@@ -1,18 +1,20 @@
-<form [formGroup]="profileForm" (ngSubmit)="onSubmit()">
+<div class="container">
+  <form [formGroup]="profileForm" (ngSubmit)="onSubmit()">
 
-  <label>
-    First Name:
-    <input type="text" formControlName="firstName" required>
-  </label>
+    <div class="form-group">
+      <label>First Name:</label>
+      <input type="text" formControlName="firstName" required class="form-control" >
+    </div>
 
-  <label>
-    Last Name:
-    <input type="text" formControlName="lastName">
-  </label>
+    <div class="form-group">
+      <label>Last Name:</label>
+      <input type="text" formControlName="lastName" class="form-control" >
+    </div>
 
-  <button type="submit" [disabled]="!profileForm.valid">Submit</button>
+    <button type="submit" [disabled]="!profileForm.valid" class="btn btn-success">Submit</button>
 
-</form>
-<p>
-  Form Status: {{ profileForm.status }}
-</p>
+  </form>
+  <p>
+    Form Status: {{ profileForm.status }}
+  </p>
+</div>
