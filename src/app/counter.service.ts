@@ -10,7 +10,16 @@ export class CounterService {
   private counter: Observable<number>;
 
   constructor() {
-    this.counter = interval(1000);
+    // simple counter using interval operator
+    // this.counter = interval(1000);
+
+    // counter using create operator
+    this.counter = Observable.create(function(observer) {
+      let value = 0;
+      setInterval(() => {
+        observer.next(value++);
+      }, 1000);
+    })
   }
 
   getNumber(): Observable<number> {
