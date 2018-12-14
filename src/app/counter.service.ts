@@ -6,9 +6,14 @@ import {Observable} from "rxjs";
 })
 export class CounterService {
 
-  counter: Observable<any>;
+  private counter: Observable<number>;
+  private start = 0;
 
   constructor() {
-    this.counter = new Observable();
+    this.counter = Observable.interval(1000).map(increase => this.start++);
+  }
+
+  getNumber(): Observable<number> {
+    return this.counter;
   }
 }
