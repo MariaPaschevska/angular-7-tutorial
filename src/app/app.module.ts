@@ -17,6 +17,7 @@ import { HeroSearchComponent } from './hero-search/hero-search.component';
 import { NameEditorComponent } from './name-editor/name-editor.component';
 import { ProfileEditorComponent } from './profile-editor/profile-editor.component';
 import { HeroFormComponent } from './hero-form/hero-form.component';
+import { CounterComponent } from './counter/counter.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +29,8 @@ import { HeroFormComponent } from './hero-form/hero-form.component';
     HeroSearchComponent,
     NameEditorComponent,
     ProfileEditorComponent,
-    HeroFormComponent
+    HeroFormComponent,
+    CounterComponent
   ],
   imports: [
     BrowserModule,
