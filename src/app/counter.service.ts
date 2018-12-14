@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import {Observable} from "rxjs";
+import { interval } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -7,10 +8,9 @@ import {Observable} from "rxjs";
 export class CounterService {
 
   private counter: Observable<number>;
-  private start = 0;
 
   constructor() {
-    this.counter = Observable.interval(1000).map(increase => this.start++);
+    this.counter = interval(1000);
   }
 
   getNumber(): Observable<number> {
