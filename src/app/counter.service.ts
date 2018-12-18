@@ -1,7 +1,5 @@
 import { Injectable } from '@angular/core';
-import {Observable} from "rxjs";
-import { interval } from 'rxjs';
-import {delay} from "rxjs/operators";
+import {Observable, interval, Subject } from "rxjs";
 
 @Injectable({
   providedIn: 'root'
@@ -9,6 +7,7 @@ import {delay} from "rxjs/operators";
 export class CounterService {
 
   private counter: Observable<number>;
+  private subject: Subject<number>;
 
   constructor() {
     // simple counter using interval operator
@@ -20,7 +19,16 @@ export class CounterService {
       setInterval(() => {
         observer.next(value++);
       }, 1000);
-    })
+    });
+
+    this.subject = new Subject<number>();
+    let value = 0;
+    setInterval(() => {
+      this.subject.next(value++);
+    }, 1000);
+    setInterval(() => {
+      this.subject.next(value++);
+    }, 1000);
   }
 
   getCounter(): Observable<number> {
