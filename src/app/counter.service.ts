@@ -26,9 +26,6 @@ export class CounterService {
     setInterval(() => {
       this.subject.next(value++);
     }, 1000);
-    setInterval(() => {
-      this.subject.next(value++);
-    }, 1000);
   }
 
   getCounter(): Observable<number> {
