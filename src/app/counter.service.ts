@@ -14,15 +14,19 @@ export class CounterService {
     // this.counter = interval(1000);
 
     // counter using create operator
-    this.counter = Observable.create(function(observer) {
+    this.counter = this.increaseValueObserver();
+
+    this.subject = new Subject<number>();
+    this.increaseValueSubject();
+  }
+
+  increaseValueObserver(): Observable<number> {
+    return Observable.create(function(observer) {
       let value = 0;
       setInterval(() => {
         observer.next(value++);
       }, 1000);
     });
-
-    this.subject = new Subject<number>();
-    this.increaseValueSubject();
   }
 
   increaseValueSubject() {
