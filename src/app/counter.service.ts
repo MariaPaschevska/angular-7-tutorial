@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import {Observable, interval, Subject } from "rxjs";
+import {Observable, interval, Subject} from "rxjs";
 
 @Injectable({
   providedIn: 'root'
@@ -22,6 +22,10 @@ export class CounterService {
     });
 
     this.subject = new Subject<number>();
+    this.increaseValueSubject();
+  }
+
+  increaseValueSubject() {
     let value = 0;
     setInterval(() => {
       this.subject.next(value++);
@@ -30,5 +34,9 @@ export class CounterService {
 
   getCounter(): Observable<number> {
     return this.counter;
+  }
+
+  getSubjectCounter(): Subject<number> {
+    return this.subject;
   }
 }

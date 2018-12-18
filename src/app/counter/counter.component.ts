@@ -9,7 +9,6 @@ import {CounterService} from "../counter.service";
 export class CounterComponent implements OnInit {
 
   count: number;
-  count2: number;
   subjectCount: number;
   subjectCount2: number;
 
@@ -19,9 +18,8 @@ export class CounterComponent implements OnInit {
     let subscription1, subscription2;
 
     this.counterService.getCounter().subscribe(count => this.count = count);
-    this.counterService.getCounter().subscribe(count2 => this.count2 = count2);
-    subscription1 = this.counterService.subject.subscribe(subjectCount => this.subjectCount = subjectCount);
-    subscription2 = this.counterService.subject.subscribe(subjectCount2 => this.subjectCount2 = subjectCount2);
+    subscription1 = this.counterService.getSubjectCounter().subscribe(subjectCount => this.subjectCount = subjectCount);
+    subscription2 = this.counterService.getSubjectCounter().subscribe(subjectCount2 => this.subjectCount2 = subjectCount2);
 
     setTimeout(() => {
       subscription1.unsubscribe();
