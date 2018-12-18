@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import {Observable} from "rxjs";
 import { interval } from 'rxjs';
+import {delay} from "rxjs/operators";
 
 @Injectable({
   providedIn: 'root'
@@ -22,7 +23,7 @@ export class CounterService {
     })
   }
 
-  getNumber(): Observable<number> {
+  getCounter(): Observable<number> {
     return this.counter;
   }
 }

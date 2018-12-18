@@ -13,6 +13,6 @@ export class CounterComponent implements OnInit {
   constructor(private counterService: CounterService) { }
 
   ngOnInit() {
-    this.counterService.getNumber().subscribe(count => this.count = count);
+    this.counterService.getCounter().subscribe(count => this.count = count);
   }
 }
