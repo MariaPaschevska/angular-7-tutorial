@@ -12,11 +12,13 @@ export class CounterComponent implements OnInit {
   subjectCount: number;
   subjectCount2: number;
   avataras: object;
+  avataras2: object;
+  a = [];
 
   constructor(private counterService: CounterService) { }
 
   ngOnInit() {
-    let subscription1, subscription2, subscription3, subscription4;
+    let subscription1, subscription2, subscription3, subscription4, subscription5;
 
     subscription1 = this.counterService.getCounter()
       .subscribe(count => this.count = count);
@@ -40,6 +42,17 @@ export class CounterComponent implements OnInit {
     }, 10000);
 
 
-    subscription4 = this.counterService.avatarasOf.subscribe(avataras => this.avataras = avataras);
+    subscription4 = this.counterService.avatarasOf.
+      subscribe(avataras => this.avataras = avataras);
+
+    subscription4.complete(console.log('Subscription 4 completed'));
+
+    subscription5 = this.counterService.avatarasFrom.
+      subscribe(avataras2 => {
+        this.a.push(avataras2);
+        return this.avataras2 = this.a;
+    });
+
+    subscription5.complete(console.log('Subscription 5 completed'));
   }
 }

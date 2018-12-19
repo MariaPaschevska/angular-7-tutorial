@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import {Observable, interval, Subject, of} from "rxjs";
+import {Observable, interval, Subject, of, from} from "rxjs";
 
 let avataras = [
   { name: 'Krishna'},
@@ -15,6 +15,7 @@ export class CounterService {
   private counter: Observable<number>;
   private subject: Subject<number>;
   public avatarasOf: Observable<any>;
+  public avatarasFrom: Observable<any>;
 
   constructor() {
     // simple counter using interval operator
@@ -27,6 +28,7 @@ export class CounterService {
     this.increaseValueSubject();
 
     this.avatarasOf = of(avataras);
+    this.avatarasFrom = from(avataras);
   }
 
   increaseValueObserver(): Observable<number> {
@@ -52,5 +54,4 @@ export class CounterService {
   getSubjectCounter(): Subject<number> {
     return this.subject;
   }
-
 }
