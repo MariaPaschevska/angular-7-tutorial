@@ -11,11 +11,12 @@ export class CounterComponent implements OnInit {
   count: number;
   subjectCount: number;
   subjectCount2: number;
+  avataras: object;
 
   constructor(private counterService: CounterService) { }
 
   ngOnInit() {
-    let subscription1, subscription2, subscription3;
+    let subscription1, subscription2, subscription3, subscription4;
 
     subscription1 = this.counterService.getCounter()
       .subscribe(count => this.count = count);
@@ -37,5 +38,8 @@ export class CounterComponent implements OnInit {
     setTimeout(() => {
       subscription3.unsubscribe();
     }, 10000);
+
+
+    subscription4 = this.counterService.avatarasOf.subscribe(avataras => this.avataras = avataras);
   }
 }

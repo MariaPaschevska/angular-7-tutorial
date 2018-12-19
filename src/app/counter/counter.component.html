@@ -1,8 +1,18 @@
 <div class="container">
-  <h2>Observable Counter</h2>
-  <p>The Observable subscribe() result is here: setInterval {{count}}</p>
+  <div class="row">
+    <h2>Observable Counter</h2>
+    <p>The Observable subscribe() result is here: setInterval {{count}}</p>
 
-  <h2>Subject Counters</h2>
-  <p>The Subject subscribe() result is here: #1 {{subjectCount}}</p>
-  <p>The Subject subscribe() result is here: #2 {{subjectCount2}}</p>
+    <h2>Subject Counters</h2>
+    <p>The Subject subscribe() result is here: #1 {{subjectCount}}</p>
+    <p>The Subject subscribe() result is here: #2 {{subjectCount2}}</p>
+  </div>
+  <div class="row">
+    <h3>Observable Of: Avataras names are:</h3>
+    <ul>
+      <li *ngFor="let avatar of avataras">
+        {{avatar.name}}
+      </li>
+    </ul>
+  </div>
 </div>
