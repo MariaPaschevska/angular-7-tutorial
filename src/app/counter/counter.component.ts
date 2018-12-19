@@ -11,8 +11,8 @@ export class CounterComponent implements OnInit {
   count: number;
   subjectCount: number;
   subjectCount2: number;
-  avataras: object;
-  avataras2: object;
+  avataras = [];
+  avataras2 = [];
   a = [];
 
   constructor(private counterService: CounterService) { }
@@ -42,17 +42,17 @@ export class CounterComponent implements OnInit {
     }, 10000);
 
 
-    subscription4 = this.counterService.avatarasOf.
-      subscribe(avataras => this.avataras = avataras);
+    subscription4 = this.counterService.avatarasOf.subscribe(
+      avataras => this.avataras = avataras,
+      error => console.log('Subscription 4 error', error),
+      () => console.log('Subscription 4 completed'));
 
-    subscription4.complete(console.log('Subscription 4 completed'));
-
-    subscription5 = this.counterService.avatarasFrom.
-      subscribe(avataras2 => {
+    subscription5 = this.counterService.avatarasFrom.subscribe(
+      avataras2 => {
         this.a.push(avataras2);
         return this.avataras2 = this.a;
-    });
-
-    subscription5.complete(console.log('Subscription 5 completed'));
+      }, error1 => console.log('Subscription 4 error', error1),
+      ()=> console.log('Subscription 5 completed')
+      );
   }
 }
