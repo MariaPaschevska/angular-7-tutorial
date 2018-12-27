@@ -1,5 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, TemplateRef } from '@angular/core';
 import {CounterService} from "../counter.service";
+import { BsModalService } from 'ngx-bootstrap/modal';
+import { BsModalRef } from 'ngx-bootstrap/modal/bs-modal-ref.service';
+import {template} from "@angular/core/src/render3";
+import {any} from "codelyzer/util/function";
 
 @Component({
   selector: 'app-counter',
@@ -14,8 +18,9 @@ export class CounterComponent implements OnInit {
   avataras = [];
   avataras2 = [];
   a = [];
+  modalRef: BsModalRef;
 
-  constructor(private counterService: CounterService) { }
+  constructor(private counterService: CounterService, private modalService: BsModalService) { }
 
   ngOnInit() {
     let subscription1, subscription2, subscription3, subscription4, subscription5;
@@ -54,5 +59,8 @@ export class CounterComponent implements OnInit {
       }, error1 => console.log('Subscription 4 error', error1),
       ()=> console.log('Subscription 5 completed')
       );
+  }
+  openModal(template: TemplateRef<any>) {
+    this.modalRef = this.modalService.show(template);
   }
 }

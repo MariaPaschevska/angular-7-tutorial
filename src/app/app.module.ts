@@ -18,6 +18,7 @@ import { NameEditorComponent } from './name-editor/name-editor.component';
 import { ProfileEditorComponent } from './profile-editor/profile-editor.component';
 import { HeroFormComponent } from './hero-form/hero-form.component';
 import { CounterComponent } from './counter/counter.component';
+import {ModalModule} from "ngx-bootstrap";
 
 @NgModule({
   declarations: [
@@ -44,7 +45,8 @@ import { CounterComponent } from './counter/counter.component';
     // Remove it when a real server is ready to receive requests.
     HttpClientInMemoryWebApiModule.forRoot(
       InMemoryDataService, { dataEncapsulation: false }
-    )
+    ),
+    ModalModule.forRoot()
   ],
   providers: [],
   bootstrap: [AppComponent]
