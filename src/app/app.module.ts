@@ -18,7 +18,7 @@ import { NameEditorComponent } from './name-editor/name-editor.component';
 import { ProfileEditorComponent } from './profile-editor/profile-editor.component';
 import { HeroFormComponent } from './hero-form/hero-form.component';
 import { CounterComponent } from './counter/counter.component';
-import {ModalModule} from "ngx-bootstrap";
+import {BsDropdownModule, ModalModule} from "ngx-bootstrap";
 
 @NgModule({
   declarations: [
@@ -46,7 +46,8 @@ import {ModalModule} from "ngx-bootstrap";
     HttpClientInMemoryWebApiModule.forRoot(
       InMemoryDataService, { dataEncapsulation: false }
     ),
-    ModalModule.forRoot()
+    ModalModule.forRoot(),
+    BsDropdownModule.forRoot()
   ],
   providers: [],
   bootstrap: [AppComponent]

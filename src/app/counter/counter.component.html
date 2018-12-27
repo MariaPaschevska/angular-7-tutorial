@@ -36,8 +36,26 @@
       <button type="button" class="btn btn-primary" (click)="openModal(template)">Click My modal</button>
     </div>
   </div>
+  <div class="row">
+    <div class="col-sm">
+      <h2>Dropdown with data from Observable</h2>
+      <div class="btn-group" dropdown>
+        <button id="button-basic" dropdownToggle type="button" class="btn btn-info dropdown-toggle"
+                aria-controls="dropdown-basic">
+          Choose Avatar</button>
+        <ul id="dropdown-basic" *dropdownMenu class="dropdown-menu"
+            role="menu" aria-labelledby="button-basic">
+          <li *ngFor="let avatar of avataras2" role="menuitem">
+            <a class="dropdown-item" >{{avatar.name}}</a>
+          </li>
+        </ul>
+      </div>
+
+    </div>
+  </div>
 </div>
 
+<!--Template for Modal-->
 <ng-template #template>
   <div class="modal-header">
     <h4 class="modal-title pull-left">Modal</h4>
