@@ -1,26 +1,5 @@
 import { Injectable } from '@angular/core';
-import {Observable, interval, Subject, of, from} from "rxjs";
-
-let avataras = [
-  {
-    id: 1,
-    name: 'Krishna',
-    age: '4 000 BC',
-    country: 'India'
-  },
-  {
-    id: 2,
-    name: 'Buddha',
-    age: '500 BC',
-    country: 'India'
-  },
-  {
-    id: 3,
-    name: 'Muhammad',
-    age: '570',
-    country: 'Saudi Arabia'
-  }
-];
+import {Observable, interval, Subject} from "rxjs";
 
 @Injectable({
   providedIn: 'root'
@@ -28,22 +7,18 @@ let avataras = [
 export class CounterService {
 
   private counter: Observable<number>;
+  private counterInterval: Observable<number>;
   private subject: Subject<number>;
-  public avatarasOf: Observable<any>;
-  public avatarasFrom: Observable<any>;
 
   constructor() {
     // simple counter using interval operator
-    // this.counter = interval(1000);
+    this.counterInterval = interval(1000);
 
     // counter using create operator
     this.counter = this.increaseValueObserver();
 
     this.subject = new Subject<number>();
     this.increaseValueSubject();
-
-    this.avatarasOf = of(avataras);
-    this.avatarasFrom = from(avataras);
   }
 
   increaseValueObserver(): Observable<number> {
@@ -64,6 +39,10 @@ export class CounterService {
 
   getCounter(): Observable<number> {
     return this.counter;
+  }
+
+  getCounterInterval(): Observable<number> {
+    return this.counterInterval;
   }
 
   getSubjectCounter(): Subject<number> {
