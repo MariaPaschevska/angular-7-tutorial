@@ -3,7 +3,6 @@ import {CounterService} from "../counter.service";
 import { BsModalService } from 'ngx-bootstrap/modal';
 import { BsModalRef } from 'ngx-bootstrap/modal/bs-modal-ref.service';
 import {template} from "@angular/core/src/render3";
-import {any} from "codelyzer/util/function";
 
 @Component({
   selector: 'app-counter',
