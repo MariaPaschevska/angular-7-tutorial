@@ -1,5 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit, TemplateRef} from '@angular/core';
 import {AvatarasService} from "../services/avataras.service";
+import { BsModalService } from 'ngx-bootstrap/modal';
+import { BsModalRef } from 'ngx-bootstrap/modal/bs-modal-ref.service';
 
 @Component({
   selector: 'app-avataras',
@@ -11,13 +13,11 @@ export class AvatarasComponent implements OnInit {
   avataras = [];
   avataras2 = [];
   a = [];
+  selectedAvatar: object;
 
-  avatarId: number;
-  avatarName: string;
-  avatarAge: string;
-  avatarCountry: string;
+  modalRef: BsModalRef;
 
-  constructor(private avatarasService: AvatarasService) { }
+  constructor(private avatarasService: AvatarasService, private modalService: BsModalService) { }
 
   ngOnInit() {
 
@@ -35,4 +35,8 @@ export class AvatarasComponent implements OnInit {
     );
   }
 
+  openAvatarModal(template: TemplateRef<any>, avatar) {
+    this.selectedAvatar = avatar;
+    this.modalRef = this.modalService.show(template, this.selectedAvatar);
+  }
 }

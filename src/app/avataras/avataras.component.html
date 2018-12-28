@@ -21,7 +21,7 @@
   </div>
   <div class="row">
     <div class="col-sm">
-      <h2>Dropdown with data from Observable</h2>
+      <h3>Dropdown with data from Observable</h3>
       <div class="btn-group" dropdown>
         <button id="button-basic" dropdownToggle type="button" class="btn btn-info dropdown-toggle"
                 aria-controls="dropdown-basic">
@@ -29,7 +29,7 @@
         <ul id="dropdown-basic" *dropdownMenu class="dropdown-menu"
             role="menu" aria-labelledby="button-basic">
           <li *ngFor="let avatar of avataras2" role="menuitem">
-            <a class="dropdown-item" >{{avatar.name}}</a>
+            <a class="dropdown-item" (click)="openAvatarModal(templateAvatarModal, avatar)">{{avatar.name}}</a>
           </li>
         </ul>
       </div>
@@ -39,7 +39,7 @@
 </div>
 
 <!--Modal template for Avatars-->
-<ng-template #templateAvatar>
+<ng-template #templateAvatarModal>
   <div class="modal-header">
     <h4 class="modal-title pull-left">Avatar's details</h4>
     <button type="button" class="close pull-right" aria-label="Close" (click)="modalRef.hide()">
@@ -48,10 +48,10 @@
   </div>
   <div class="modal-body">
     <ul>
-      <li>ID: {{avatarId}}</li>
-      <li>Name: {{avatarName}}</li>
-      <li>History time: {{avatarAge}}</li>
-      <li>Country of birth: {{avatarCountry}}</li>
+      <li>ID: {{selectedAvatar.id}}</li>
+      <li>Name: {{selectedAvatar.name}}</li>
+      <li>History time: {{selectedAvatar.age}}</li>
+      <li>Country of birth: {{selectedAvatar.country}}</li>
     </ul>
   </div>
   <div class="modal-footer">
