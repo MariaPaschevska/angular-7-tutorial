@@ -2,9 +2,24 @@ import { Injectable } from '@angular/core';
 import {Observable, interval, Subject, of, from} from "rxjs";
 
 let avataras = [
-  { name: 'Krishna'},
-  { name: 'Buddha'},
-  { name: 'Muhammad'}
+  {
+    id: 1,
+    name: 'Krishna',
+    age: '4 000 BC',
+    country: 'India'
+  },
+  {
+    id: 2,
+    name: 'Buddha',
+    age: '500 BC',
+    country: 'India'
+  },
+  {
+    id: 3,
+    name: 'Muhammad',
+    age: '570',
+    country: 'Saudi Arabia'
+  }
 ];
 
 @Injectable({

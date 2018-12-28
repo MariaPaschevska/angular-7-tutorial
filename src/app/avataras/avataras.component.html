@@ -1,0 +1,60 @@
+<div class="container">
+  <div class="row">
+    <div class="col-sm">
+      <h3>Observable Of: Avataras names are:</h3>
+      <ul>
+        <li *ngFor="let avatar of avataras">
+          {{avatar.name}}
+        </li>
+      </ul>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-sm">
+      <h3>Observable From: Avataras names are:</h3>
+      <ul>
+        <li *ngFor="let avatar of avataras2">
+          {{avatar.name}}
+        </li>
+      </ul>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-sm">
+      <h2>Dropdown with data from Observable</h2>
+      <div class="btn-group" dropdown>
+        <button id="button-basic" dropdownToggle type="button" class="btn btn-info dropdown-toggle"
+                aria-controls="dropdown-basic">
+          Choose Avatar</button>
+        <ul id="dropdown-basic" *dropdownMenu class="dropdown-menu"
+            role="menu" aria-labelledby="button-basic">
+          <li *ngFor="let avatar of avataras2" role="menuitem">
+            <a class="dropdown-item" >{{avatar.name}}</a>
+          </li>
+        </ul>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<!--Modal template for Avatars-->
+<ng-template #templateAvatar>
+  <div class="modal-header">
+    <h4 class="modal-title pull-left">Avatar's details</h4>
+    <button type="button" class="close pull-right" aria-label="Close" (click)="modalRef.hide()">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <ul>
+      <li>ID: {{avatarId}}</li>
+      <li>Name: {{avatarName}}</li>
+      <li>History time: {{avatarAge}}</li>
+      <li>Country of birth: {{avatarCountry}}</li>
+    </ul>
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-default" (click)="modalRef.hide()">Close</button>
+  </div>
+</ng-template>

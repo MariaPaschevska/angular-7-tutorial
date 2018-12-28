@@ -18,7 +18,13 @@ export class CounterComponent implements OnInit {
   avataras = [];
   avataras2 = [];
   a = [];
+
   modalRef: BsModalRef;
+  avatarId: number;
+  avatarName: string;
+  avatarAge: string;
+  avatarCountry: string;
+
 
   constructor(private counterService: CounterService, private modalService: BsModalService) { }
 
@@ -59,7 +65,8 @@ export class CounterComponent implements OnInit {
       }, error1 => console.log('Subscription 4 error', error1),
       ()=> console.log('Subscription 5 completed')
       );
-  }
+
+   }
   openModal(template: TemplateRef<any>) {
     this.modalRef = this.modalService.show(template);
   }

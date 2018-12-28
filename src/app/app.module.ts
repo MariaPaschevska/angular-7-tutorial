@@ -19,6 +19,7 @@ import { ProfileEditorComponent } from './profile-editor/profile-editor.componen
 import { HeroFormComponent } from './hero-form/hero-form.component';
 import { CounterComponent } from './counter/counter.component';
 import {BsDropdownModule, ModalModule} from "ngx-bootstrap";
+import { AvatarasComponent } from './avataras/avataras.component';
 
 @NgModule({
   declarations: [
@@ -31,7 +32,8 @@ import {BsDropdownModule, ModalModule} from "ngx-bootstrap";
     NameEditorComponent,
     ProfileEditorComponent,
     HeroFormComponent,
-    CounterComponent
+    CounterComponent,
+    AvatarasComponent
   ],
   imports: [
     BrowserModule,
