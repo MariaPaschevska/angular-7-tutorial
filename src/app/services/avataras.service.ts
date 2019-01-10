@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import {from, Observable, of} from "rxjs";
+import {filter} from "rxjs/operators";
 
 let avataras = [
   {
@@ -35,5 +36,9 @@ export class AvatarasService {
     this.avatarasOf = of(avataras);
     this.avatarasFrom = from(avataras);
 
+  }
+
+  getAvatar(id: number): Observable<any> {
+    return this.avatarasFrom.pipe(filter(avatar => avatar.id = id));
   }
 }

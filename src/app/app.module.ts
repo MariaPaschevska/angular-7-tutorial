@@ -20,6 +20,7 @@ import { HeroFormComponent } from './hero-form/hero-form.component';
 import { CounterComponent } from './counter/counter.component';
 import {BsDropdownModule, ModalModule} from "ngx-bootstrap";
 import { AvatarasComponent } from './avataras/avataras.component';
+import { AvatarDetailComponent } from './avatar-detail/avatar-detail.component';
 
 @NgModule({
   declarations: [
@@ -33,7 +34,8 @@ import { AvatarasComponent } from './avataras/avataras.component';
     ProfileEditorComponent,
     HeroFormComponent,
     CounterComponent,
-    AvatarasComponent
+    AvatarasComponent,
+    AvatarDetailComponent
   ],
   imports: [
     BrowserModule,

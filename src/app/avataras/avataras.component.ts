@@ -17,7 +17,10 @@ export class AvatarasComponent implements OnInit {
 
   modalRef: BsModalRef;
 
-  constructor(private avatarasService: AvatarasService, private modalService: BsModalService) { }
+  constructor(
+    private avatarasService: AvatarasService,
+    private modalService: BsModalService
+  ) { }
 
   ngOnInit() {
 
