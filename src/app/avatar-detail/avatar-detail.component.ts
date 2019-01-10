@@ -14,15 +14,16 @@ export class AvatarDetailComponent implements OnInit {
   constructor(
     private route: ActivatedRoute,
     private avatarasService: AvatarasService
-  ) { }
+  ) {
+    this.route.params.subscribe(avatar => this.avatar = avatar);
+  }
 
   ngOnInit(): void {
     this.getAvatar();
   }
 
   getAvatar(): void {
-    const id = +this.route.snapshot.paramMap.get('id');
-    this.avatarasService.getAvatar(id)
+    this.avatarasService.getAvatar(this.avatar.id)
       .subscribe(avatar => this.avatar = avatar);
   }
 }

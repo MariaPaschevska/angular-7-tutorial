@@ -17,7 +17,7 @@ const routes: Routes = [
   { path: 'forms', component: NameEditorComponent},
   { path: 'counter', component: CounterComponent},
   { path: 'avataras', component: AvatarasComponent},
-  { path: 'avatar-detail/:id', component: AvatarDetailComponent}
+  { path: 'avatars/:id', component: AvatarDetailComponent}
 ];
 
 @NgModule({
