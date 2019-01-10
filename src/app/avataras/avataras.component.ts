@@ -2,6 +2,7 @@ import {Component, OnInit, TemplateRef} from '@angular/core';
 import {AvatarasService} from "../services/avataras.service";
 import { BsModalService } from 'ngx-bootstrap/modal';
 import { BsModalRef } from 'ngx-bootstrap/modal/bs-modal-ref.service';
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-avataras',
@@ -19,7 +20,8 @@ export class AvatarasComponent implements OnInit {
 
   constructor(
     private avatarasService: AvatarasService,
-    private modalService: BsModalService
+    private modalService: BsModalService,
+    private router: Router
   ) { }
 
   ngOnInit() {
@@ -41,5 +43,10 @@ export class AvatarasComponent implements OnInit {
   openAvatarModal(template: TemplateRef<any>, avatar) {
     this.selectedAvatar = avatar;
     this.modalRef = this.modalService.show(template, this.selectedAvatar);
+  }
+
+  openAvatarDetailPage(id) {
+    this.router.navigate(['avatar-detail', id]);
+    this.modalRef.hide();
   }
 }

@@ -16,7 +16,7 @@ const routes: Routes = [
   { path: 'heroes', component: HeroesComponent },
   { path: 'forms', component: NameEditorComponent},
   { path: 'counter', component: CounterComponent},
-  { path: 'avataras', component: AvatarasComponent}
+  { path: 'avataras', component: AvatarasComponent},
   { path: 'avatar-detail/:id', component: AvatarDetailComponent}
 ];
 
