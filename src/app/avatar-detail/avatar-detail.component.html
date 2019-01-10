@@ -1,3 +1,15 @@
-<p>
-  avatar-detail works!
-</p>
+<div class="container">
+  <div class="row">
+    <div class="col-sm">
+      <div *ngIf="avatar">
+        <h2>{{avatar.name | uppercase}} Details</h2>
+        <ul>
+          <li>ID: {{avatar.id}}</li>
+          <li>Name: {{avatar.name}}</li>
+          <li>History time: {{avatar.age}}</li>
+          <li>Country of birth: {{avatar.country}}</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>

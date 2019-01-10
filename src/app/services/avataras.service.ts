@@ -39,6 +39,6 @@ export class AvatarasService {
   }
 
   getAvatar(id: number): Observable<any> {
-    return this.avatarasFrom.pipe(filter(avatar => avatar.id = id));
+    return this.avatarasFrom.pipe(filter(avatar => avatar.id == id));
   }
 }

@@ -9,7 +9,6 @@ import {AvatarasService} from "../services/avataras.service";
 })
 export class AvatarDetailComponent implements OnInit {
 
-  id: number;
   avatar: object;
 
   constructor(
@@ -23,11 +22,7 @@ export class AvatarDetailComponent implements OnInit {
 
   getAvatar(): void {
     const id = +this.route.snapshot.paramMap.get('id');
-    this.id = id;
-    console.log("ID of the selected Avatar is:", id);
     this.avatarasService.getAvatar(id)
       .subscribe(avatar => this.avatar = avatar);
-    console.log("Is this really my Avatar?:", this.avatar);
   }
-
 }
