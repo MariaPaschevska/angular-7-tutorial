@@ -10,6 +10,7 @@ import {FormControl, FormGroup, Validators} from "@angular/forms";
 })
 export class AvatarEditingComponent implements OnInit {
 
+  avatarId: object;
   avatar: object;
 
   avatarEditForm = new FormGroup({
@@ -23,10 +24,16 @@ export class AvatarEditingComponent implements OnInit {
     private avatarasService: AvatarasService,
     private router: Router
   ) {
-    this.route.params.subscribe(avatar => this.avatar = avatar);
+    this.route.params.subscribe(id => this.avatarId = id);
   }
 
-  ngOnInit() {
+  ngOnInit(): void {
+    this.getAvatar();
+  }
+
+  getAvatar(): void {
+    this.avatarasService.getAvatar(this.avatarId.id)
+      .subscribe(avatar => this.avatar = avatar);
   }
 
   onSubmit() {
