@@ -9,6 +9,7 @@ import {AvatarasService} from "../../services/avataras.service";
 })
 export class AvatarDetailComponent implements OnInit {
 
+  id: number;
   avatar: object;
 
   constructor(
@@ -16,7 +17,12 @@ export class AvatarDetailComponent implements OnInit {
     private avatarasService: AvatarasService,
     private router: Router
   ) {
-    this.route.params.subscribe(avatar => this.avatar = avatar);
+    this.route.params
+      .subscribe(
+        params => {
+          this.id = +params['id'];
+        }
+      );
   }
 
   ngOnInit(): void {
@@ -24,8 +30,18 @@ export class AvatarDetailComponent implements OnInit {
   }
 
   getAvatar(): void {
-    this.avatarasService.getAvatar(this.avatar.id)
-      .subscribe(avatar => this.avatar = avatar);
+    this.avatarasService.getAvatar(this.id)
+      .subscribe(
+        avatar => {
+          this.avatar = avatar;
+        },
+        error => {
+          console.log('Error getAvatar AvatarDetail', error);
+        },
+        () => {
+          console.log('Complete getAvatar AvatarDetail');
+        }
+      );
   }
 
   openAvatarEditPage(id) {

@@ -47,7 +47,7 @@ export class AvatarEditingComponent implements OnInit {
           console.log('Error getAvatar AvatarEditing', error);
         },
         () => {
-          console.log('Complete');
+          console.log('Complete getAvatar AvatarEditing');
         }
       );
   }
