@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {ActivatedRoute, Router} from "@angular/router";
 import {AvatarasService} from "../../services/avataras.service";
 import {FormControl, FormGroup, Validators} from "@angular/forms";
+import {Location} from "@angular/common";
 
 @Component({
   selector: 'app-avatar-editing',
@@ -22,7 +23,8 @@ export class AvatarEditingComponent implements OnInit {
   constructor(
     private route: ActivatedRoute,
     private avatarasService: AvatarasService,
-    private router: Router
+    private router: Router,
+    private location: Location
   ) {
     this.route.params.subscribe(id => this.avatarId = id);
   }
@@ -39,6 +41,10 @@ export class AvatarEditingComponent implements OnInit {
   onSubmit() {
     // TODO: Use EventEmitter with form value
     console.warn(this.avatarEditForm.value);
+  }
+
+  goBack(): void {
+    this.location.back();
   }
 
 }
