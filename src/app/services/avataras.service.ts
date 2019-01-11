@@ -27,18 +27,19 @@ let avataras = [
   providedIn: 'root'
 })
 export class AvatarasService {
-
   public avatarasOf: Observable<any>;
   public avatarasFrom: Observable<any>;
 
   constructor() {
-
     this.avatarasOf = of(avataras);
     this.avatarasFrom = from(avataras);
-
   }
 
   getAvatar(id: number): Observable<any> {
-    return this.avatarasFrom.pipe(filter(avatar => avatar.id == id));
+    return from(avataras).pipe(filter(avatar => avatar.id == id));
+  }
+
+  updateAvatar() {
+
   }
 }

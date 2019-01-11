@@ -18,8 +18,11 @@ const routes: Routes = [
   { path: 'forms', component: NameEditorComponent},
   { path: 'counter', component: CounterComponent},
   { path: 'avataras', component: AvatarasComponent},
-  { path: 'avatars/:id', component: AvatarDetailComponent},
-  { path: 'avatars/:id/edit', component: AvatarEditingComponent}
+  { path: 'avatars/:id', component: AvatarDetailComponent,
+    children: [
+      { path: 'edit', component: AvatarEditingComponent }
+    ]
+  }
 ];
 
 @NgModule({

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {ActivatedRoute, Router} from "@angular/router";
+import {ActivatedRoute} from "@angular/router";
 import {AvatarasService} from "../../services/avataras.service";
 import {FormControl, FormGroup, Validators} from "@angular/forms";
 import {Location} from "@angular/common";
@@ -11,7 +11,7 @@ import {Location} from "@angular/common";
 })
 export class AvatarEditingComponent implements OnInit {
 
-  avatarId: object;
+  id: number;
   avatar: object;
 
   avatarEditForm = new FormGroup({
@@ -23,28 +23,46 @@ export class AvatarEditingComponent implements OnInit {
   constructor(
     private route: ActivatedRoute,
     private avatarasService: AvatarasService,
-    private router: Router,
     private location: Location
-  ) {
-    this.route.params.subscribe(id => this.avatarId = id);
-  }
+  ) {}
 
-  ngOnInit(): void {
+  ngOnInit() {
+    this.route.parent.params
+      .subscribe(
+        params => {
+          this.id = +params['id'];
+        }
+      );
+
     this.getAvatar();
   }
 
   getAvatar(): void {
-    this.avatarasService.getAvatar(this.avatarId.id)
-      .subscribe(avatar => this.avatar = avatar);
+    this.avatarasService.getAvatar(this.id)
+      .subscribe(
+        avatar => {
+          this.avatar = avatar;
+        },
+        error => {
+          console.log('Error getAvatar AvatarEditing', error);
+        },
+        () => {
+          console.log('Complete');
+        }
+      );
   }
 
   onSubmit() {
     // TODO: Use EventEmitter with form value
-    console.warn(this.avatarEditForm.value);
+    console.log('Submitted Avatar', this.avatarEditForm.value);
+  }
+
+  save(): void {
+    this.avatarasService.updateAvatar(this.avatar)
+      .subscribe(() => this.goBack());
   }
 
   goBack(): void {
     this.location.back();
   }
-
 }
