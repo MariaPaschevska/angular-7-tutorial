@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import {ActivatedRoute} from "@angular/router";
-import {AvatarasService} from "../services/avataras.service";
+import {ActivatedRoute, Router} from "@angular/router";
+import {AvatarasService} from "../../services/avataras.service";
 
 @Component({
   selector: 'app-avatar-detail',
@@ -13,7 +13,8 @@ export class AvatarDetailComponent implements OnInit {
 
   constructor(
     private route: ActivatedRoute,
-    private avatarasService: AvatarasService
+    private avatarasService: AvatarasService,
+    private router: Router
   ) {
     this.route.params.subscribe(avatar => this.avatar = avatar);
   }
@@ -25,5 +26,10 @@ export class AvatarDetailComponent implements OnInit {
   getAvatar(): void {
     this.avatarasService.getAvatar(this.avatar.id)
       .subscribe(avatar => this.avatar = avatar);
+  }
+
+  openAvatarEditPage(id) {
+    console.log('openAvatarEditPage ID', id);
+    this.router.navigate(['avatars', id, 'edit']);
   }
 }

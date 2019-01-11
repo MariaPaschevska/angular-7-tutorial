@@ -6,8 +6,9 @@ import { DashboardComponent }   from './dashboard/dashboard.component';
 import { HeroDetailComponent }  from './hero-detail/hero-detail.component';
 import {NameEditorComponent} from "./name-editor/name-editor.component";
 import {CounterComponent} from "./counter/counter.component";
-import {AvatarasComponent} from "./avataras/avataras.component";
-import {AvatarDetailComponent} from "./avatar-detail/avatar-detail.component";
+import {AvatarasComponent} from "./avatars/avataras/avataras.component";
+import {AvatarDetailComponent} from "./avatars/avatar-detail/avatar-detail.component";
+import {AvatarEditingComponent} from "./avatars/avatar-editing/avatar-editing.component";
 
 const routes: Routes = [
   { path: '', redirectTo: '/dashboard', pathMatch: 'full' },
@@ -17,7 +18,8 @@ const routes: Routes = [
   { path: 'forms', component: NameEditorComponent},
   { path: 'counter', component: CounterComponent},
   { path: 'avataras', component: AvatarasComponent},
-  { path: 'avatars/:id', component: AvatarDetailComponent}
+  { path: 'avatars/:id', component: AvatarDetailComponent},
+  { path: 'avatars/:id/edit', component: AvatarEditingComponent}
 ];
 
 @NgModule({

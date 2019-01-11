@@ -18,9 +18,10 @@ import { NameEditorComponent } from './name-editor/name-editor.component';
 import { ProfileEditorComponent } from './profile-editor/profile-editor.component';
 import { HeroFormComponent } from './hero-form/hero-form.component';
 import { CounterComponent } from './counter/counter.component';
-import {BsDropdownModule, ModalModule} from "ngx-bootstrap";
-import { AvatarasComponent } from './avataras/avataras.component';
-import { AvatarDetailComponent } from './avatar-detail/avatar-detail.component';
+import {BsDropdownModule, CollapseModule, ModalModule} from "ngx-bootstrap";
+import { AvatarasComponent } from './avatars/avataras/avataras.component';
+import { AvatarDetailComponent } from './avatars/avatar-detail/avatar-detail.component';
+import { AvatarEditingComponent } from './avatars/avatar-editing/avatar-editing.component';
 
 @NgModule({
   declarations: [
@@ -35,7 +36,8 @@ import { AvatarDetailComponent } from './avatar-detail/avatar-detail.component';
     HeroFormComponent,
     CounterComponent,
     AvatarasComponent,
-    AvatarDetailComponent
+    AvatarDetailComponent,
+    AvatarEditingComponent
   ],
   imports: [
     BrowserModule,
@@ -51,7 +53,8 @@ import { AvatarDetailComponent } from './avatar-detail/avatar-detail.component';
       InMemoryDataService, { dataEncapsulation: false }
     ),
     ModalModule.forRoot(),
-    BsDropdownModule.forRoot()
+    BsDropdownModule.forRoot(),
+    CollapseModule.forRoot()
   ],
   providers: [],
   bootstrap: [AppComponent]
