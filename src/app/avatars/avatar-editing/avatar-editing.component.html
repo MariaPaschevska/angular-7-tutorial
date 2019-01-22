@@ -1,0 +1,33 @@
+<div class="container">
+  <div class="row">
+    <div class="col-sm-4">
+      <div *ngIf="avatar">
+        <h2>Edit Avatar's details</h2>
+        <label>ID: {{avatar.id}}</label>
+
+          <form [formGroup]="avatarEditForm" (ngSubmit)="onSubmit()">
+
+            <div class="form-group">
+              <label>Avatar's Name:</label>
+              <input type="text" formControlName="firstName" required class="form-control" value="{{avatar.name}}">
+            </div>
+            <div class="form-group">
+              <label>History time:</label>
+              <input type="text" formControlName="historyTime" class="form-control" value="{{avatar.age}}">
+            </div>
+            <div class="form-group">
+              <label>Country of birth:</label>
+              <input type="text" formControlName="country" class="form-control" value="{{avatar.country}}">
+            </div>
+
+            <button type="submit" [disabled]="!avatarEditForm.valid" class="btn btn-primary">Save</button>
+            <button type="button" (click)="goBack()" class="btn btn-secondary">Go back</button>
+
+          </form>
+          <p class="padding-top">
+            Form Status: {{ avatarEditForm.status }}
+          </p>
+
+    </div>
+  </div>
+</div>

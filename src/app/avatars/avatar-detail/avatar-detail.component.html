@@ -1,0 +1,19 @@
+<div class="container">
+  <div class="row">
+    <div class="col-sm-4">
+      <div *ngIf="avatar">
+        <h2>{{avatar.name | uppercase}} Details</h2>
+        <ul>
+          <li>ID: {{avatar.id}}</li>
+          <li>Name: {{avatar.name}}</li>
+          <li>History time: {{avatar.age}}</li>
+          <li>Country of birth: {{avatar.country}}</li>
+        </ul>
+
+        <button type="button" class="btn btn-primary"
+                (click)="openAvatarEditPage(avatar.id)">Edit</button>
+        <button type="button" (click)="goBack()" class="btn btn-secondary">Go back</button>
+      </div>
+    </div>
+  </div>
+</div>
