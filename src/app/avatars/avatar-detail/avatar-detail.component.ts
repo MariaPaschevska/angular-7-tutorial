@@ -1,6 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {ActivatedRoute, Router} from "@angular/router";
 import {AvatarasService} from "../../services/avataras.service";
+import {Location} from "@angular/common";
 
 @Component({
   selector: 'app-avatar-detail',
@@ -15,7 +16,8 @@ export class AvatarDetailComponent implements OnInit {
   constructor(
     private route: ActivatedRoute,
     private avatarasService: AvatarasService,
-    private router: Router
+    private router: Router,
+    private location: Location
   ) {
     this.route.params
       .subscribe(
@@ -46,5 +48,9 @@ export class AvatarDetailComponent implements OnInit {
 
   openAvatarEditPage(id) {
     this.router.navigate(['avataras', id, 'edit']);
+  }
+
+  goBack(): void {
+    this.location.back();
   }
 }

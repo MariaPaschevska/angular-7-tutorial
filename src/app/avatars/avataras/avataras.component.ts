@@ -2,7 +2,7 @@ import {Component, OnInit, TemplateRef} from '@angular/core';
 import {AvatarasService} from "../../services/avataras.service";
 import { BsModalService } from 'ngx-bootstrap/modal';
 import { BsModalRef } from 'ngx-bootstrap/modal/bs-modal-ref.service';
-import {Router} from "@angular/router";
+import {ActivatedRoute, Router} from "@angular/router";
 
 @Component({
   selector: 'app-avataras',
@@ -15,14 +15,23 @@ export class AvatarasComponent implements OnInit {
   avataras2 = [];
   a = [];
   selectedAvatar: object;
-
+  showAvataras: boolean;
   modalRef: BsModalRef;
+  private route: any;
 
   constructor(
+    private route: ActivatedRoute,
     private avatarasService: AvatarasService,
     private modalService: BsModalService,
     private router: Router
-  ) { }
+  ) {
+    this.route.url
+      .subscribe(
+        () => {
+          this.showAvataras = !this.route.children.length;
+        }
+      );
+  }
 
   ngOnInit() {
 
