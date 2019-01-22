@@ -27,7 +27,7 @@ export class AvatarEditingComponent implements OnInit {
   ) {}
 
   ngOnInit() {
-    this.route.parent.params
+    this.route.params
       .subscribe(
         params => {
           this.id = +params['id'];
@@ -57,10 +57,10 @@ export class AvatarEditingComponent implements OnInit {
     console.log('Submitted Avatar', this.avatarEditForm.value);
   }
 
-  save(): void {
-    this.avatarasService.updateAvatar(this.avatar)
-      .subscribe(() => this.goBack());
-  }
+  // save(): void {
+  //   this.avatarasService.updateAvatar(this.avatar)
+  //     .subscribe(() => this.goBack());
+  // }
 
   goBack(): void {
     this.location.back();

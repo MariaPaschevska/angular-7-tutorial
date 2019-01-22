@@ -46,7 +46,7 @@ export class AvatarasComponent implements OnInit {
   }
 
   openAvatarDetailPage(id) {
-    this.router.navigate(['avatars', id]);
+    this.router.navigate(['avataras', id]);
     this.modalRef.hide();
   }
 }

@@ -17,10 +17,10 @@ const routes: Routes = [
   { path: 'heroes', component: HeroesComponent },
   { path: 'forms', component: NameEditorComponent},
   { path: 'counter', component: CounterComponent},
-  { path: 'avataras', component: AvatarasComponent},
-  { path: 'avatars/:id', component: AvatarDetailComponent,
+  { path: 'avataras', component: AvatarasComponent,
     children: [
-      { path: 'edit', component: AvatarEditingComponent }
+      { path: ':id', component: AvatarDetailComponent },
+      { path: ':id/edit', component: AvatarEditingComponent }
     ]
   }
 ];

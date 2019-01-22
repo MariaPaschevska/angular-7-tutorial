@@ -45,6 +45,6 @@ export class AvatarDetailComponent implements OnInit {
   }
 
   openAvatarEditPage(id) {
-    this.router.navigate(['avatars', id, 'edit']);
+    this.router.navigate(['avataras', id, 'edit']);
   }
 }
