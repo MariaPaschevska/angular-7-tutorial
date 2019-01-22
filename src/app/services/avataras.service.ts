@@ -1,6 +1,8 @@
 import { Injectable } from '@angular/core';
 import {from, Observable, of} from "rxjs";
-import {filter} from "rxjs/operators";
+import {catchError, filter, tap} from "rxjs/operators";
+import {Avatar} from "../avatars/avatar";
+import {HttpClient} from "@angular/common/http";
 
 let avataras = [
   {
@@ -29,8 +31,11 @@ let avataras = [
 export class AvatarasService {
   public avatarasOf: Observable<any>;
   public avatarasFrom: Observable<any>;
+  private avatarasUrl = 'api/avataras';
 
-  constructor() {
+  constructor(
+    private http: HttpClient
+  ) {
     this.avatarasOf = of(avataras);
     this.avatarasFrom = from(avataras);
   }
@@ -41,5 +46,14 @@ export class AvatarasService {
 
   updateAvatar() {
 
+  }
+
+  /** get Avataras from the mocked server */
+  getAvataras(): Observable<Avatar[]> {
+    return this.http.get<Avatar[]>(this.avatarasUrl)
+      .pipe(
+        tap(_ => console.log('fetched avataras')),
+        catchError(console.log('getAvataras error', []))
+      );
   }
 }

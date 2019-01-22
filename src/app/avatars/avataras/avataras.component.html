@@ -21,6 +21,16 @@
   </div>
   <div class="row">
     <div class="col-sm">
+      <h3>HTTP: Avataras names are:</h3>
+      <ul>
+        <li *ngFor="let avatar of avatarasList">
+          {{avatar.name}}
+        </li>
+      </ul>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-sm">
       <h3>Dropdown with data from Observable</h3>
       <div class="btn-group" dropdown>
         <button id="button-basic" dropdownToggle type="button" class="btn btn-info dropdown-toggle"

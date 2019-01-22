@@ -3,6 +3,7 @@ import {AvatarasService} from "../../services/avataras.service";
 import { BsModalService } from 'ngx-bootstrap/modal';
 import { BsModalRef } from 'ngx-bootstrap/modal/bs-modal-ref.service';
 import {ActivatedRoute, Router} from "@angular/router";
+import {Avatar} from "../avatar";
 
 @Component({
   selector: 'app-avataras',
@@ -13,6 +14,7 @@ export class AvatarasComponent implements OnInit {
 
   avataras = [];
   avataras2 = [];
+  avatarasList: Avatar[];
   a = [];
   selectedAvatar: object;
   showAvataras: boolean;
@@ -34,6 +36,7 @@ export class AvatarasComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.getAVataras();
 
     this.avatarasService.avatarasOf.subscribe(
       avataras => this.avataras = avataras,
@@ -46,6 +49,14 @@ export class AvatarasComponent implements OnInit {
         return this.avataras2 = this.a;
       }, error1 => console.log('Subscription avatarasFrom error', error1),
       ()=> console.log('Subscription avatarasFrom completed')
+    );
+  }
+
+  getAVataras(): void {
+    this.avatarasService.getAvataras().subscribe(
+      avatarasList => this.avatarasList = avatarasList,
+      error => console.log('Subscription getAvataras() error', error),
+      () => console.log('Subscription getAvataras() completed')
     );
   }
 
