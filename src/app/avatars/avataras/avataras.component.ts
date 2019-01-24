@@ -19,7 +19,6 @@ export class AvatarasComponent implements OnInit {
   selectedAvatar: object;
   showAvataras: boolean;
   modalRef: BsModalRef;
-  private route: any;
 
   constructor(
     private route: ActivatedRoute,
